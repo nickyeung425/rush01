@@ -1,18 +1,21 @@
 #include "./utils.c"
 #include "./check_input.c"
-#include <stdio.h>
+#include "./parse_constraint.c"
+#include "./starting_board.c"
 
 int main(int argc, char **argv)
 {
+  int size = 4;
 
   if (argc == 2)
   {
-    if (check_input(argv[1]) == 0)
+    if (check_input(argv[1], size) == 0)
     {
-      printf("Correct input: %s\n", argv[1]);
-      printf("Testing bit operations: %d\n",  & 2);
-      printf("Testing bit operations: %d\n", 6 & 4);
-      printf("Testing bit operations: %d\n", 5 & 1);
+      int *constraint = ft_parse_constraint(argv[1]);
+      int ***board = ft_starting_board(size);
+
+      solve_board(constraint, board);
+      ft_print_int_array(board, size);
     }
     else
     {
