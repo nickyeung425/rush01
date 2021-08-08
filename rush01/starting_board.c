@@ -31,3 +31,28 @@ int ***ft_starting_board(int size)
   }
   return board;
 }
+
+
+int **ft_starting_board_solution(int size)
+{
+  int **board = NULL;
+  board = (int **)malloc(sizeof (int *) * size);
+
+  int i;
+  int j;
+  i = 0;
+  j = 0;
+
+  while (i < size)
+  {
+    board[i] = (int *)malloc(sizeof (int) * size);
+    while(j < size)
+    {
+      board[i][j] = 4;
+      j++;
+    }
+    j = 0;
+    i++;
+  }
+  return board;
+}

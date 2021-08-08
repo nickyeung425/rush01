@@ -2,6 +2,7 @@
 #include "./check_input.c"
 #include "./parse_constraint.c"
 #include "./starting_board.c"
+#include "./solve.c"
 
 int main(int argc, char **argv)
 {
@@ -13,9 +14,12 @@ int main(int argc, char **argv)
     {
       int *constraint = ft_parse_constraint(argv[1]);
       int ***board = ft_starting_board(size);
+      int **board_solution = ft_starting_board_solution(size);
 
-      solve_board(constraint, board);
-      ft_print_int_array(board, size);
+      solve_board(constraint, board, board_solution, size);
+      ft_print_int_array(board, board_solution, size);
+      free(constraint);
+      free(board);
     }
     else
     {

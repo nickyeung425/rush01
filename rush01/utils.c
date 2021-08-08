@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <stdio.h>
 
 void ft_print_char(char c)
 {
@@ -14,7 +15,11 @@ void ft_print_str(char *str)
   }
 }
 
-void ft_print_int_array(int ***no_array, int size)
+void ft_print_number(int n)
+{
+  ft_print_char(n + '0');
+}
+void ft_print_int_array(int ***board, int **board_solution, int size)
 {
   int i;
   int j;
@@ -26,12 +31,15 @@ void ft_print_int_array(int ***no_array, int size)
   {
     while(j < size)
     {
-      while(k < size)
+      while(k < board_solution[i][j])
       {
-        ft_print_char(no_array[i][j][k] + '0');
-        k++;
+        while(k < board_solution[i][j])
+        {
+          ft_print_number(board[i][j][k]);
+          k++;
+        }
+        ft_print_char(' ');
       }
-      ft_print_char(' ');
       k = 0;
       j++;
     }
