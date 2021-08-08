@@ -1,33 +1,5 @@
 #include <stdlib.h>
 
-<<<<<<< HEAD
-=======
-int	get_i(int index)
-{
-	int	i;
-
-	if (index < g_size)
-		i = 0;
-	else if (g_size <= index && index < (g_size * 2))
-		i = 3;
-	else
-		i = index % g_size;
-	return (i);
-}
-
-int	get_j(int index)
-{
-	int	j;
-
-	if (index < g_size * 2)
-		j = index % g_size;
-	else if (g_size * 2 <= index && index < g_size * 3)
-		j = 0;
-	else
-		j = 3;
-	return (j);
-}
->>>>>>> 6ee7cc41f2950eaecdf0fbc1c9d40e9b3d43719e
 
 int	check_value_onboard(int *values, int values_size, int value)
 {
@@ -176,7 +148,7 @@ void	update_value_else(int ***board, int **board_solution, int value, int i, int
 
 	possible_solutions_index = 0;
 	current_board_solutions_index = 0;
-	*possible_solutions = (int *)malloc(sizeof (int) * possible_solutions_no);
+	possible_solutions = (int *)malloc(sizeof (int) * possible_solutions_no);
 	possible_solutions_no = get_possible_values_solutions_no(board[i][j], board_solution[i][j], value);
 	while (current_board_solutions_index < board_solution[i][j])
 	{
@@ -253,7 +225,7 @@ int	*find_next_coordinates(int **board_solution)
 
 	i = 0;
 	j = 0;
-	*coordinates = (int *) malloc(sizeof (int) * 2);
+	coordinates = (int *) malloc(sizeof (int) * 2);
 	while (i < g_size)
 	{
 		while (j < g_size)
@@ -406,6 +378,6 @@ void	find_solution_start(int *constraint, int ***board, int **board_solution)
   int result = find_solution(board, board_solution, constraint);
   if (result == 0)
   {
-    ft_print_str("cannot find solution")
+    ft_print_str("cannot find solution");
   }
 }
