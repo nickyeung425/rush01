@@ -1,43 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>           
-int main(int argc, char* argv[]) //command line arguments
+int test_constraint(***board, *constraint)
 {
-  int ***arr;                    //triple pointer
-  int block,row,column;          //variables for block, rows and columns
-  int i,j,k;                     //nested for loop
-  printf("enter the blocks, rows and columns: ");
-  scanf("%d %d %d",&block,&row,&column);
-  arr=(int ***)malloc(sizeof(int ***)*block);
-  for(i=0;i<block;i++) 
+  int constraint_index = 0;
+  int i;
+  int j; 
+  int test_index;
+  while (constraint_index < g_size * 4)
   {
-    arr[i]=(int **)malloc(sizeof(int*)*row);
-    for(j=0;j<row;j++) 
-	{
-      arr[i][j]=(int *)malloc(sizeof(int)*column);
-    }
+    test_top_bottom();
   }
-  for(i=0;i<block;i++) 
-  {
-    for(j=0;j<row;j++) 
-	{
-      for(k=0;k<column;k++) 
-	  {
-        arr[i][j][k] = 1;
-      }
-    }
-  }
-  printf("Printing 3D Array:\n");
-  for(i=0;i<block;i++) 
-  {
-    for(j=0;j<row;j++) 
-	{
-      for(k=0;k<column;k++) 
-	  {
-        printf("%.2d ",arr[i][j][k]);
-      }
-      printf("\n");
-    }
-    printf("\n");
-  }
+
   return 0;
+}
+
+int test_top_bottom()
+{
+    i = get_i(constraint_index);
+    j = get_j(constraint_index);
+    test_index = i + 1;
+
+    while (test_index < g_size - 1)
+    {
+      
+    }
 }

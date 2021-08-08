@@ -7,6 +7,7 @@
 #include "./check_input.c"
 #include "./starting_board.c"
 #include "./solve.c"
+#include "./test.c"
 
 int main(int argc, char **argv)
 {

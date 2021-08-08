@@ -325,7 +325,7 @@ int find_solution_finished(int **board_solution)
   }
   return 1;
 }
-int find_solution(int ***board, int **board_solution)
+int find_solution(int ***board, int **board_solution, *constraint)
 {
   int *coordinates = find_next_coordinates(board_solution);
   int no_of_value_left = board_solution[coordinates[0]][coordinates[1]];
@@ -334,13 +334,8 @@ int find_solution(int ***board, int **board_solution)
   int **new_board_solution = NULL;
   if (find_solution_finished(board_solution) == 1)
   {
-    // printf("found combination\n");
-    // printf("%d %d %d %d\n%d %d %d %d\n%d %d %d %d\n%d %d %d %d\n",
-    //   board[0][0][0], board[0][1][0], board[0][2][0], board[0][3][0],
-    //   board[1][0][0], board[1][1][0], board[1][2][0], board[1][3][0],
-    //   board[2][0][0], board[2][1][0], board[2][2][0], board[2][3][0],
-    //   board[3][0][0], board[3][1][0], board[3][2][0], board[3][3][0]
-    // );
+    int result = test_constraint(board, constraint);
+
     ft_print_int_array_result(board);
     return 1;
   }
@@ -358,7 +353,7 @@ int find_solution(int ***board, int **board_solution)
       
       new_board_solution[coordinates[0]][coordinates[1]] = 1;
       
-      int result = find_solution(new_board, new_board_solution);
+      int result = find_solution(new_board, new_board_solution, constraint);
       no_of_value_left_index++;
     }
   }
@@ -369,6 +364,6 @@ void find_solution_start(int *constraint, int ***board, int **board_solution)
 {
   // int x = 0;
   // int y = 0;
-  int result = find_solution(board, board_solution);
+  int result = find_solution(board, board_solution, constraint);
   printf("%d", result);
 }
