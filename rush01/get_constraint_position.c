@@ -1,6 +1,6 @@
-int get_i(int index)
+int	get_i(int index)
 {
-	int i;
+	int	i;
 
 	if (index < G_SIZE)
 		i = 0;
@@ -11,9 +11,9 @@ int get_i(int index)
 	return (i);
 }
 
-int get_j(int index)
+int	get_j(int index)
 {
-	int j;
+	int	j;
 
 	if (index < G_SIZE * 2)
 		j = index % G_SIZE;
