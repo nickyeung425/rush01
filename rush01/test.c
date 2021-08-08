@@ -1,43 +1,127 @@
-#include <stdio.h>
-#include <stdlib.h>           
-int main(int argc, char* argv[]) //command line arguments
+int	constraint_top_bottom(int constraint_index, int ***board)
 {
-  int ***arr;                    //triple pointer
-  int block,row,column;          //variables for block, rows and columns
-  int i,j,k;                     //nested for loop
-  printf("enter the blocks, rows and columns: ");
-  scanf("%d %d %d",&block,&row,&column);
-  arr=(int ***)malloc(sizeof(int ***)*block);
-  for(i=0;i<block;i++) 
+	int	index;
+	int	current_max;
+	int	res;
+	int	x;
+	int	y;
+
+  index = 0;
+  current_max = 0;
+  x = get_i(constraint_index);
+  y = get_j(constraint_index);
+  res = 0;
+  while (index < g_size)
   {
-    arr[i]=(int **)malloc(sizeof(int*)*row);
-    for(j=0;j<row;j++) 
-	{
-      arr[i][j]=(int *)malloc(sizeof(int)*column);
+    if (current_max < board[index][y][0])
+    {
+      current_max = board[index][y][0];
+      res ++;
     }
+    index ++;
   }
-  for(i=0;i<block;i++) 
+  return res;
+}
+
+int	constraint_bottom_top(int constraint_index, int ***board)
+{
+	int	index;
+	int	current_max;
+	int	res;
+	int	x;
+	int	y;
+
+  index = g_size - 1;
+  current_max = 0;
+  x = get_i(constraint_index);
+  y = get_j(constraint_index);
+  res = 0;
+  while (index >= 0)
   {
-    for(j=0;j<row;j++) 
-	{
-      for(k=0;k<column;k++) 
-	  {
-        arr[i][j][k] = 1;
-      }
+    if (current_max < board[index][y][0])
+    {
+      current_max = board[index][y][0];
+      res ++;
     }
+    index--;
   }
-  printf("Printing 3D Array:\n");
-  for(i=0;i<block;i++) 
+  return res;
+}
+
+int	constraint_left_right(int constraint_index, int ***board)
+{
+	int	index;
+	int	current_max;
+	int	res;
+	int	x;
+	int	y;
+
+  index = 0;
+  current_max = 0;
+  x = get_i(constraint_index);
+  y = get_j(constraint_index);
+  res = 0;
+  while (index < g_size)
   {
-    for(j=0;j<row;j++) 
-	{
-      for(k=0;k<column;k++) 
-	  {
-        printf("%.2d ",arr[i][j][k]);
-      }
-      printf("\n");
+    if (current_max < board[x][index][0])
+    {
+      current_max = board[x][index][0];
+      res ++;
     }
-    printf("\n");
+    index ++;
   }
-  return 0;
+  return res;
+}
+
+int	constraint_right_left(int constraint_index, int ***board)
+{
+	int	index;
+	int	current_max;
+	int	res;
+	int	x;
+	int	y;
+
+  index = g_size - 1;
+  current_max = 0;
+  x = get_i(constraint_index);
+  y = get_j(constraint_index);
+  res = 0;
+  while (index >= 0)
+  {
+    if (current_max < board[x][index][0])
+    {
+      current_max = board[x][index][0];
+      res ++;
+    }
+    index--;
+  }
+  return res;
+}
+
+int	test_constraint(int ***board, int *constraint)
+{
+  int constraint_index;
+  
+  constraint_index = 0;
+  while (constraint_index < g_size * 4)
+  {
+    if (constraint_index / g_size == 0 && constraint_top_bottom(constraint_index, board) != constraint[constraint_index])
+    {
+      return 0;
+    }
+    else if (constraint_index / g_size == 1 && constraint_bottom_top(constraint_index, board) != constraint[constraint_index])
+    {
+      return 0;
+    }
+    else if (constraint_index / g_size == 2 && constraint_left_right(constraint_index, board) != constraint[constraint_index])
+    {
+      return 0;
+    }
+    else if (constraint_index / g_size == 3 && constraint_right_left(constraint_index, board) != constraint[constraint_index])
+    {
+      return 0;
+    }
+    constraint_index++;
+  }
+  return 1;
 }

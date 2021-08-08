@@ -100,3 +100,26 @@ void	ft_print_int_array_result(int ***board)
 }
 ft_print_char('\n');
 }
+
+void ft_print_int_array_result(int ***board)
+{
+  int i;
+  int j;
+  i = 0;
+  j = 0;
+  while(i < g_size)
+  {
+    while(j < g_size)
+    {
+      ft_print_number(board[i][j][0]);
+      if (j != g_size - 1)
+      {
+        ft_print_char(' ');
+      }
+      j++;
+    }
+    ft_print_char('\n');
+    j = 0;
+    i++;
+  }
+}
