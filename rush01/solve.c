@@ -312,16 +312,15 @@ int find_solution(int ***board, int **board_solution, int *constraint)
   if (find_solution_finished(board_solution) == 1)
   {
     int result = test_sudoku(board);
-
-      // ft_print_char(result+'0');
-      // ft_print_str("result\n");
-      // ft_print_int_array_result(board);
     if (result == 1)
     {
       result = test_constraint(board, constraint);
-      ft_print_str("result\n");
-      ft_print_int_array_result(board);
-      return 1;  
+      if (result == 1)
+      {
+        ft_print_int_array_result(board);
+        return 1;
+      }
+      return 0;  
     }
     else
     {
@@ -344,6 +343,9 @@ int find_solution(int ***board, int **board_solution, int *constraint)
       new_board_solution[coordinates[0]][coordinates[1]] = 1;
       
       int result = find_solution(new_board, new_board_solution, constraint);
+      if (result == 1){
+
+      }
       no_of_value_left_index++;
     }
   }
@@ -353,5 +355,8 @@ int find_solution(int ***board, int **board_solution, int *constraint)
 void find_solution_start(int *constraint, int ***board, int **board_solution)
 {
   int result = find_solution(board, board_solution, constraint);
-  printf("%d", result);
+  if (result == 0)
+  {
+    ft_print_str("cannot find solution")
+  }
 }

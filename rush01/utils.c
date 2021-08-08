@@ -105,5 +105,4 @@ void ft_print_int_array_result(int ***board)
     j = 0;
     i++;
   }
-  ft_print_char('\n');
 }
