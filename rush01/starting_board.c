@@ -1,11 +1,11 @@
 #include <stdlib.h>
 
-int ***ft_starting_board(void)
+int	***ft_starting_board(void)
 {
-	int i;
-	int j;
-	int k;
-	int ***board;
+	int	i;
+	int	j;
+	int	k;
+	int	***board;
 
 	i = 0;
 	j = 0;
@@ -31,11 +31,11 @@ int ***ft_starting_board(void)
 	return (board);
 }
 
-int **ft_starting_board_solution(void)
+int	**ft_starting_board_solution(void)
 {
-	int i;
-	int j;
-	int **board;
+	int	i;
+	int	j;
+	int	**board;
 
 	i = 0;
 	j = 0;
