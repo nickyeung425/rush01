@@ -3,21 +3,21 @@
 int get_i(int index)
 {
   int i;
-  if (index < SIZE)
+  if (index < g_size)
     i = 0;
-  else if (SIZE <= index && index < (SIZE * 2))
+  else if (g_size <= index && index < (g_size * 2))
     i = 3;
   else
-    i = index % SIZE;
+    i = index % g_size;
   return i;
 }
 
 int get_j(int index)
 {
   int j;
-  if (index < SIZE * 2)
-    j = index % SIZE;
-  else if (SIZE * 2 <= index && index < SIZE * 3)
+  if (index < g_size * 2)
+    j = index % g_size;
+  else if (g_size * 2 <= index && index < g_size * 3)
     j = 0;
   else
     j = 3;
@@ -69,7 +69,7 @@ void remove_board_value_row_col(int ***board, int **board_solution, int i, int j
   int index;
 
   index = 0;
-  while (index < SIZE)
+  while (index < g_size)
   {
     if (index != i && board_solution[index][j] != 1)
     {
@@ -108,17 +108,17 @@ void update_value_four(int ***board, int **board_solution, int index, int value,
   int loop_index;
 
   loop_index = 0;
-  while (loop_index < SIZE)
+  while (loop_index < g_size)
   {
-    if (index < SIZE)
+    if (index < g_size)
     {
       set_board_value(board, board_solution, i + (1 * loop_index), j, loop_index + 1);
     }
-    else if  (SIZE <= index && index < SIZE * 2)
+    else if  (g_size <= index && index < g_size * 2)
     {
       set_board_value(board, board_solution, i + (-1 * loop_index), j, loop_index + 1);
     }
-    else if  (SIZE <= index * 2 && index < SIZE * 3)
+    else if  (g_size <= index * 2 && index < g_size * 3)
     {
       set_board_value(board, board_solution, i, j + (1 * loop_index), loop_index + 1);
     }
@@ -142,9 +142,9 @@ int get_possible_values_solutions_no(int *current_board_solutions, int current_b
   int possible_solutions_no = 0;
   while (current_board_solutions_index < current_board_solutions_no)
   {
-    while (possible_values_index <= (SIZE - constraint_value + 1))
+    while (possible_values_index <= (g_size - constraint_value + 1))
     {
-      if (current_board_solutions[current_board_solutions_index] <= (SIZE - constraint_value + 1))
+      if (current_board_solutions[current_board_solutions_index] <= (g_size - constraint_value + 1))
       {
         possible_solutions_no++;
         break;
@@ -164,7 +164,7 @@ void update_value_else(int ***board, int **board_solution, int value, int i, int
   int possible_solutions_index = 0;
   while (current_board_solutions_index < board_solution[i][j])
   {
-    if (board[i][j][current_board_solutions_index] <= (SIZE - value + 1))
+    if (board[i][j][current_board_solutions_index] <= (g_size - value + 1))
     {
       possible_solutions[possible_solutions_index] = board[i][j][current_board_solutions_index];
       possible_solutions_index++;
@@ -179,9 +179,9 @@ void optimize_board(int ***board, int **board_solution)
   int x = 0;
   int y = 0;
 
-  while (x < SIZE)
+  while (x < g_size)
   {
-    while (y < SIZE)
+    while (y < g_size)
     {
       if (board_solution[x][y] == 1)
       {
@@ -200,13 +200,13 @@ void update_board(int ***board, int **board_solution, int index, int value)
   i = get_i(index);
   j = get_j(index);
 
-  if (value == SIZE)
+  if (value == g_size)
   {
     update_value_four(board, board_solution, index, value, i, j);
   }
   else if (value == 1)
   {
-    update_value_one(board, board_solution, index, SIZE, i, j);
+    update_value_one(board, board_solution, index, g_size, i, j);
   }
   else 
   {
@@ -218,7 +218,7 @@ void prepare_board(int *constraint, int ***board, int **board_solution)
 {
   int i;
   i = 0;
-  while (i < SIZE * 4)
+  while (i < g_size * 4)
   {
     update_board(board, board_solution, i, constraint[i]);
     i++;
@@ -232,9 +232,9 @@ int *find_next_coordinates(int **board_solution)
   int *coordinates = (int *)malloc(sizeof (int) * 2);
   int i = 0;
   int j = 0;
-  while (i < SIZE)
+  while (i < g_size)
   {
-    while (j < SIZE)
+    while (j < g_size)
     {
       if (board_solution[i][j] != 1)
       {
@@ -255,15 +255,15 @@ int *find_next_coordinates(int **board_solution)
 int ***copy_board(int ***board, int **board_solution)
 {
   int ***new_board;
-  new_board = (int ***)malloc(sizeof (int **) * SIZE);
+  new_board = (int ***)malloc(sizeof (int **) * g_size);
   int row = 0;
   int col = 0;
   int val = 0;
 
-  while(row < SIZE)
+  while(row < g_size)
   {
-    new_board[row] = (int **)malloc(sizeof (int *) * SIZE);
-    while (col < SIZE)
+    new_board[row] = (int **)malloc(sizeof (int *) * g_size);
+    while (col < g_size)
     {
       new_board[row][col] = (int *)malloc(sizeof (int) * board_solution[row][col]);
       while (val < board_solution[row][col])
@@ -285,17 +285,17 @@ int ***copy_board(int ***board, int **board_solution)
 int **copy_board_solution(int **board_solution)
 {
   int **new_board_solution = NULL;
-  new_board_solution = (int **)malloc(sizeof (int *) * SIZE);
+  new_board_solution = (int **)malloc(sizeof (int *) * g_size);
 
   int row;
   int col;
   row = 0;
   col = 0;
 
-  while (row < SIZE)
+  while (row < g_size)
   {
-    new_board_solution[row] = (int *)malloc(sizeof (int) * SIZE);
-    while(col < SIZE)
+    new_board_solution[row] = (int *)malloc(sizeof (int) * g_size);
+    while(col < g_size)
     {
       new_board_solution[row][col] = board_solution[row][col];
       col++;
@@ -310,9 +310,9 @@ int find_solution_finished(int **board_solution)
 {
   int row = 0;
   int col = 0;
-  while (row < SIZE)
+  while (row < g_size)
   {
-    while (col < SIZE)
+    while (col < g_size)
     {
       if (board_solution[row][col] != 1)
       {

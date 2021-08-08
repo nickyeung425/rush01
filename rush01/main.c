@@ -1,5 +1,5 @@
 
-#define SIZE 4
+#define g_size 4
 #include <unistd.h>
 #include <stdlib.h>
 
