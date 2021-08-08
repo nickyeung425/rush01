@@ -12,7 +12,7 @@ int check_input(char *input, int size)
   while(input[index])
   {
     current_value = input[index];
-    if ((index % 2 == 1 && current_value != ' ') || (index % 2 == 0 && (!('0' <= current_value && current_value <= (size + '0')))))
+    if ((index % 2 == 1 && current_value != ' ') || (index % 2 == 0 && (!('0' < current_value && current_value <= (size + '0')))))
     {
       result = 1;
       break ;

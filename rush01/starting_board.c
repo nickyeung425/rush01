@@ -3,7 +3,7 @@
 int ***ft_starting_board(int size)
 {
   int ***board = NULL;
-  board = (int ***)malloc(sizeof (int ***) * size);
+  board = (int ***)malloc(sizeof (int **) * size);
 
   int i;
   int j;
@@ -48,7 +48,7 @@ int **ft_starting_board_solution(int size)
     board[i] = (int *)malloc(sizeof (int) * size);
     while(j < size)
     {
-      board[i][j] = 4;
+      board[i][j] = size;
       j++;
     }
     j = 0;

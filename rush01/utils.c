@@ -81,3 +81,28 @@ int convert_char_to_int(char c)
   }
   return 0;
 }
+
+
+void ft_print_int_array_result(int ***board, int size)
+{
+  int i;
+  int j;
+  i = 0;
+  j = 0;
+  while(i < size)
+  {
+    while(j < size)
+    {
+      ft_print_number(board[i][j][0]);
+      if (j != size - 1)
+      {
+        ft_print_char(' ');
+      }
+      j++;
+    }
+    ft_print_char('\n');
+    j = 0;
+    i++;
+  }
+  ft_print_char('\n');
+}
