@@ -1,12 +1,12 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void ft_print_char(char c)
+void	ft_print_char(char c)
 {
 	write(1, &c, 1);
 }
 
-void ft_print_str(char *str)
+void	ft_print_str(char *str)
 {
 	while (*str)
 	{
@@ -15,43 +15,12 @@ void ft_print_str(char *str)
 	}
 }
 
-void ft_print_number(int n)
+void	ft_print_number(int n)
 {
 	ft_print_char(n + '0');
 }
 
-void ft_print_int_array(int ***board, int **board_solution)
-{
-	int i;
-	int j;
-	int k;
-
-	i = 0;
-	j = 0;
-	k = 0;
-	while (i < G_SIZE)
-	{
-		while (j < G_SIZE)
-		{
-			while (k < board_solution[i][j])
-			{
-				while (k < board_solution[i][j])
-				{
-					ft_print_number(board[i][j][k]);
-					k++;
-				}
-				ft_print_char(' ');
-			}
-			k = 0;
-			j++;
-		}
-		ft_print_char('\n');
-		j = 0;
-		i++;
-	}
-}
-
-int convert_char_to_int(char c)
+int	convert_char_to_int(char c)
 {
 	{
 		if (c == '1')
@@ -76,10 +45,11 @@ int convert_char_to_int(char c)
 	return (0);
 }
 
-void ft_print_int_array_result(int ***board)
+void	ft_print_int_array_result(int ***board)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
+
 	i = 0;
 	j = 0;
 	while (i < G_SIZE)

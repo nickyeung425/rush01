@@ -1,9 +1,9 @@
-int test_sudoku_row_col(int ***board, int row, int col)
+int	test_sudoku_row_col(int ***board, int row, int col)
 {
-	int x;
-	
+	int	x;
+
 	x = 0;
-	while (x<G_SIZE)
+	while (x < G_SIZE)
 	{
 		if (x != row && board[row][col][0] == board[x][col][0])
 		{
@@ -18,22 +18,22 @@ int test_sudoku_row_col(int ***board, int row, int col)
 	return (1);
 }
 
-int test_sudoku(int ***board)
+int	test_sudoku(int ***board)
 {
-	int row;
-	int col;
+	int	row;
+	int	col;
 
 	row = 0;
 	col = 0;
-	while(row < G_SIZE)
+	while (row < G_SIZE)
 	{
-		while (col< G_SIZE)
+		while (col < G_SIZE)
 		{
 			if (test_sudoku_row_col(board, row, col) == 0)
 			{
 				return (0);
 			}
-		col++;
+			col++;
 		}
 		col = 0;
 		row++;

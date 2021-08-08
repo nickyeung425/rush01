@@ -1,8 +1,8 @@
-int check_input(char *input)
+int	check_input(char *input)
 {
-	int id;
-	int result;
-	int cv;
+	int	id;
+	int	result;
+	int	cv;
 
 	id = 0;
 	result = 0;
@@ -14,7 +14,7 @@ int check_input(char *input)
 			if (id % 2 == 0 && (!('0' < cv && cv <= (G_SIZE + '0'))))
 			{
 				result = 1;
-				break;
+				break ;
 			}
 		}
 		id++;
@@ -22,11 +22,11 @@ int check_input(char *input)
 	return (result);
 }
 
-int *ft_parse_constraint(char *string)
+int	*ft_parse_constraint(char *string)
 {
-	int index;
-	int constraint_index;
-	int *constraint;
+	int	index;
+	int	constraint_index;
+	int	*constraint;
 
 	index = 0;
 	constraint_index = 0;
