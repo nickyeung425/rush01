@@ -1,12 +1,12 @@
 #include <unistd.h>
 #include <stdio.h>
 
-void	ft_print_char(char c)
+void ft_print_char(char c)
 {
 	write(1, &c, 1);
 }
 
-void	ft_print_str(char *str)
+void ft_print_str(char *str)
 {
 	while (*str)
 	{
@@ -15,16 +15,16 @@ void	ft_print_str(char *str)
 	}
 }
 
-void	ft_print_number(int n)
+void ft_print_number(int n)
 {
 	ft_print_char(n + '0');
 }
 
-void	ft_print_int_array(int ***board, int **board_solution)
+void ft_print_int_array(int ***board, int **board_solution)
 {
-	int	i;
-	int	j;
-	int	k;
+	int i;
+	int j;
+	int k;
 
 	i = 0;
 	j = 0;
@@ -51,7 +51,7 @@ void	ft_print_int_array(int ***board, int **board_solution)
 	}
 }
 
-int	convert_char_to_int(char c)
+int convert_char_to_int(char c)
 {
 	{
 		if (c == '1')
@@ -78,23 +78,23 @@ int	convert_char_to_int(char c)
 
 void ft_print_int_array_result(int ***board)
 {
-  int i;
-  int j;
-  i = 0;
-  j = 0;
-  while(i < G_SIZE)
-  {
-    while(j < G_SIZE)
-    {
-      ft_print_number(board[i][j][0]);
-      if (j != G_SIZE - 1)
-      {
-        ft_print_char(' ');
-      }
-      j++;
-    }
-    ft_print_char('\n');
-    j = 0;
-    i++;
-  }
+	int i;
+	int j;
+	i = 0;
+	j = 0;
+	while (i < G_SIZE)
+	{
+		while (j < G_SIZE)
+		{
+			ft_print_number(board[i][j][0]);
+			if (j != G_SIZE - 1)
+			{
+				ft_print_char(' ');
+			}
+			j++;
+		}
+		ft_print_char('\n');
+		j = 0;
+		i++;
+	}
 }

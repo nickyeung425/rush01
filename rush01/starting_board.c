@@ -1,22 +1,22 @@
 #include <stdlib.h>
 
-int	***ft_starting_board(void)
+int ***ft_starting_board(void)
 {
-	int	i;
-	int	j;
-	int	k;
-	int	***board;
+	int i;
+	int j;
+	int k;
+	int ***board;
 
 	i = 0;
 	j = 0;
 	k = 0;
-	board = (int ***)malloc(sizeof (int **) * G_SIZE);
+	board = (int ***)malloc(sizeof(int **) * G_SIZE);
 	while (i < G_SIZE)
 	{
-		board[i] = (int **)malloc(sizeof (int *) * G_SIZE);
+		board[i] = (int **)malloc(sizeof(int *) * G_SIZE);
 		while (j < G_SIZE)
 		{
-			board[i][j] = (int *)malloc(sizeof (int) * G_SIZE);
+			board[i][j] = (int *)malloc(sizeof(int) * G_SIZE);
 			while (k < G_SIZE)
 			{
 				board[i][j][k] = k + 1;
@@ -31,18 +31,18 @@ int	***ft_starting_board(void)
 	return (board);
 }
 
-int	**ft_starting_board_solution(void)
+int **ft_starting_board_solution(void)
 {
-	int	i;
-	int	j;
-	int	**board;
+	int i;
+	int j;
+	int **board;
 
 	i = 0;
 	j = 0;
-	board = (int **)malloc(sizeof (int *) * G_SIZE);
+	board = (int **)malloc(sizeof(int *) * G_SIZE);
 	while (i < G_SIZE)
 	{
-		board[i] = (int *)malloc(sizeof (int) * G_SIZE);
+		board[i] = (int *)malloc(sizeof(int) * G_SIZE);
 		while (j < G_SIZE)
 		{
 			board[i][j] = G_SIZE;

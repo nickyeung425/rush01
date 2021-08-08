@@ -9,17 +9,15 @@
 #include "./test_sudoku.c"
 #include "./solve.c"
 
-
-
-int	main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	if (argc == 2)
 	{
 		if (check_input(argv[1]) == 0)
 		{
-			int	*constraint;
-			int	***board;
-			int	**board_solution;
+			int *constraint;
+			int ***board;
+			int **board_solution;
 
 			constraint = ft_parse_constraint(argv[1]);
 			board = ft_starting_board();
