@@ -19,7 +19,7 @@ void ft_print_number(int n)
 {
   ft_print_char(n + '0');
 }
-void ft_print_int_array(int ***board, int **board_solution, int size)
+void ft_print_int_array(int ***board, int **board_solution)
 {
   int i;
   int j;
@@ -27,9 +27,10 @@ void ft_print_int_array(int ***board, int **board_solution, int size)
   i = 0;
   j = 0;
   k = 0;
-  while(i < size)
+  
+  while(i < SIZE)
   {
-    while(j < size)
+    while(j < SIZE)
     {
       while(k < board_solution[i][j])
       {
@@ -83,18 +84,18 @@ int convert_char_to_int(char c)
 }
 
 
-void ft_print_int_array_result(int ***board, int size)
+void ft_print_int_array_result(int ***board)
 {
   int i;
   int j;
   i = 0;
   j = 0;
-  while(i < size)
+  while(i < SIZE)
   {
-    while(j < size)
+    while(j < SIZE)
     {
       ft_print_number(board[i][j][0]);
-      if (j != size - 1)
+      if (j != SIZE - 1)
       {
         ft_print_char(' ');
       }
