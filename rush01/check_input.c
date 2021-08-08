@@ -11,7 +11,7 @@ int	check_input(char *input)
 		cv = input[id];
 		if (id % 2 == 1 && cv != ' ')
 		{
-			if (id % 2 == 0 && (!('0' < cv && cv <= (g_size + '0'))))
+			if (id % 2 == 0 && (!('0' < cv && cv <= (G_SIZE + '0'))))
 			{
 				result = 1;
 				break ;

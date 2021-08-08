@@ -10,14 +10,14 @@ int	***ft_starting_board(void)
 	i = 0;
 	j = 0;
 	k = 0;
-	board = (int ***)malloc(sizeof (int **) * g_size);
-	while (i < g_size)
+	board = (int ***)malloc(sizeof (int **) * G_SIZE);
+	while (i < G_SIZE)
 	{
-		board[i] = (int **)malloc(sizeof (int *) * g_size);
-		while (j < g_size)
+		board[i] = (int **)malloc(sizeof (int *) * G_SIZE);
+		while (j < G_SIZE)
 		{
-			board[i][j] = (int *)malloc(sizeof (int) * g_size);
-			while (k < g_size)
+			board[i][j] = (int *)malloc(sizeof (int) * G_SIZE);
+			while (k < G_SIZE)
 			{
 				board[i][j][k] = k + 1;
 				k++;
@@ -39,13 +39,13 @@ int	**ft_starting_board_solution(void)
 
 	i = 0;
 	j = 0;
-	board = (int **)malloc(sizeof (int *) * g_size);
-	while (i < g_size)
+	board = (int **)malloc(sizeof (int *) * G_SIZE);
+	while (i < G_SIZE)
 	{
-		board[i] = (int *)malloc(sizeof (int) * g_size);
-		while (j < g_size)
+		board[i] = (int *)malloc(sizeof (int) * G_SIZE);
+		while (j < G_SIZE)
 		{
-			board[i][j] = g_size;
+			board[i][j] = G_SIZE;
 			j++;
 		}
 		j = 0;

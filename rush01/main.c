@@ -1,4 +1,4 @@
-#define g_size 4
+#define G_SIZE 4
 #include <unistd.h>
 #include <stdlib.h>
 #include "./get_constraint_position.c"

@@ -29,9 +29,9 @@ void	ft_print_int_array(int ***board, int **board_solution)
 	i = 0;
 	j = 0;
 	k = 0;
-	while (i < g_size)
+	while (i < G_SIZE)
 	{
-		while (j < g_size)
+		while (j < G_SIZE)
 		{
 			while (k < board_solution[i][j])
 			{
@@ -82,12 +82,12 @@ void ft_print_int_array_result(int ***board)
   int j;
   i = 0;
   j = 0;
-  while(i < g_size)
+  while(i < G_SIZE)
   {
-    while(j < g_size)
+    while(j < G_SIZE)
     {
       ft_print_number(board[i][j][0]);
-      if (j != g_size - 1)
+      if (j != G_SIZE - 1)
       {
         ft_print_char(' ');
       }
