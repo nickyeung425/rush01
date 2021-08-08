@@ -362,6 +362,7 @@ int find_solution(int ***board, int **board_solution, int *constraint)
 			int result = find_solution(new_board, new_board_solution, constraint);
 			if (result == 1)
 			{
+				return 1;
 			}
 			no_of_value_left_index++;
 		}
