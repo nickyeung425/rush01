@@ -1,10 +1,10 @@
-int constraint_top_bottom(int constraint_index, int ***board)
+int	constraint_top_bottom(int constraint_index, int ***board)
 {
-	int index;
-	int current_max;
-	int res;
-	int x;
-	int y;
+	int	index;
+	int	current_max;
+	int	res;
+	int	x;
+	int	y;
 
 	index = 0;
 	current_max = 0;
@@ -23,13 +23,13 @@ int constraint_top_bottom(int constraint_index, int ***board)
 	return (res);
 }
 
-int constraint_bottom_top(int constraint_index, int ***board)
+int	constraint_bottom_top(int constraint_index, int ***board)
 {
-	int index;
-	int current_max;
-	int res;
-	int x;
-	int y;
+	int	index;
+	int	current_max;
+	int	res;
+	int	x;
+	int	y;
 
 	index = G_SIZE - 1;
 	current_max = 0;
@@ -48,13 +48,13 @@ int constraint_bottom_top(int constraint_index, int ***board)
 	return (res);
 }
 
-int constraint_left_right(int constraint_index, int ***board)
+int	constraint_left_right(int constraint_index, int ***board)
 {
-	int index;
-	int current_max;
-	int res;
-	int x;
-	int y;
+	int	index;
+	int	current_max;
+	int	res;
+	int	x;
+	int	y;
 
 	index = 0;
 	current_max = 0;
@@ -73,13 +73,13 @@ int constraint_left_right(int constraint_index, int ***board)
 	return (res);
 }
 
-int constraint_right_left(int constraint_index, int ***board)
+int	constraint_right_left(int constraint_index, int ***board)
 {
-	int index;
-	int current_max;
-	int res;
-	int x;
-	int y;
+	int	index;
+	int	current_max;
+	int	res;
+	int	x;
+	int	y;
 
 	index = G_SIZE - 1;
 	current_max = 0;
@@ -98,9 +98,9 @@ int constraint_right_left(int constraint_index, int ***board)
 	return (res);
 }
 
-int test_constraint(int ***board, int *constraint)
+int	test_constraint(int ***board, int *constraint)
 {
-	int constraint_index;
+	int	constraint_index;
 
 	constraint_index = 0;
 	while (constraint_index < G_SIZE * 4)
