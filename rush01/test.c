@@ -6,21 +6,21 @@ int	constraint_top_bottom(int constraint_index, int ***board)
 	int	x;
 	int	y;
 
-  index = 0;
-  current_max = 0;
-  x = get_i(constraint_index);
-  y = get_j(constraint_index);
-  res = 0;
-  while (index < G_SIZE)
-  {
-    if (current_max < board[index][y][0])
-    {
-      current_max = board[index][y][0];
-      res ++;
-    }
-    index ++;
-  }
-  return (res);
+	index = 0;
+	current_max = 0;
+	x = get_i(constraint_index);
+	y = get_j(constraint_index);
+	res = 0;
+	while (index < G_SIZE)
+	{
+		if (current_max < board[index][y][0])
+    	{
+			current_max = board[index][y][0];
+			res ++;
+		}
+		index ++;
+	}
+	return (res);
 }
 
 int	constraint_bottom_top(int constraint_index, int ***board)
