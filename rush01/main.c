@@ -1,4 +1,7 @@
+
+#define G_SIZE 4
 #include <unistd.h>
+
 #include <stdlib.h>
 #include "./get_constraint_position.c"
 #include "./utils.c"
@@ -7,7 +10,6 @@
 #include "./test.c"
 #include "./test_sudoku.c"
 #include "./solve.c"
-#define G_SIZE 4
 
 int	main(int argc, char **argv)
 {
