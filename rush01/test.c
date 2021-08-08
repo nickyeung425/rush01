@@ -20,7 +20,7 @@ int	constraint_top_bottom(int constraint_index, int ***board)
     }
     index ++;
   }
-  return res;
+  return (res);
 }
 
 int	constraint_bottom_top(int constraint_index, int ***board)
@@ -45,7 +45,7 @@ int	constraint_bottom_top(int constraint_index, int ***board)
     }
     index--;
   }
-  return res;
+  return (res);
 }
 
 int	constraint_left_right(int constraint_index, int ***board)
@@ -70,7 +70,7 @@ int	constraint_left_right(int constraint_index, int ***board)
     }
     index ++;
   }
-  return res;
+  return (res);
 }
 
 int	constraint_right_left(int constraint_index, int ***board)
@@ -95,7 +95,7 @@ int	constraint_right_left(int constraint_index, int ***board)
     }
     index--;
   }
-  return res;
+  return (res);
 }
 
 int	test_constraint(int ***board, int *constraint)
@@ -107,21 +107,21 @@ int	test_constraint(int ***board, int *constraint)
   {
     if (constraint_index / g_size == 0 && constraint_top_bottom(constraint_index, board) != constraint[constraint_index])
     {
-      return 0;
+      return (0);
     }
     else if (constraint_index / g_size == 1 && constraint_bottom_top(constraint_index, board) != constraint[constraint_index])
     {
-      return 0;
+      return (0);
     }
     else if (constraint_index / g_size == 2 && constraint_left_right(constraint_index, board) != constraint[constraint_index])
     {
-      return 0;
+      return (0);
     }
     else if (constraint_index / g_size == 3 && constraint_right_left(constraint_index, board) != constraint[constraint_index])
     {
-      return 0;
+      return (0);
     }
     constraint_index++;
   }
-  return 1;
+  return (1);
 }

@@ -7,7 +7,7 @@ int get_i(int index)
     i = 3;
   else
     i = index % g_size;
-  return i;
+  return (i);
 }
 
 int get_j(int index)
@@ -19,5 +19,5 @@ int get_j(int index)
     j = 0;
   else
     j = 3;
-  return j;
+  return (j);
 }

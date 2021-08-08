@@ -342,7 +342,7 @@ int	find_solution_finished(int **board_solution)
 		{
 			if (board_solution[row][col] != 1)
 			{
-				return 0;
+				return (0);
 			}
 			col++;
 		}
@@ -367,13 +367,13 @@ int find_solution(int ***board, int **board_solution, int *constraint)
       if (result == 1)
       {
         ft_print_int_array_result(board);
-        return 1;
+        return (1);
       }
-      return 0;  
+      return (0);  
     }
     else
     {
-      return 0;
+      return (0);
     }
     
   }
@@ -398,7 +398,7 @@ int find_solution(int ***board, int **board_solution, int *constraint)
       no_of_value_left_index++;
     }
   }
-  return 0;
+  return (0);
 }
 
 void	find_solution_start(int *constraint, int ***board, int **board_solution)
