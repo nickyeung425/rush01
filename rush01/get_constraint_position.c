@@ -1,21 +1,21 @@
 int get_i(int index)
 {
   int i;
-  if (index < g_size)
+  if (index < G_SIZE)
     i = 0;
-  else if (g_size <= index && index < (g_size * 2))
+  else if (G_SIZE <= index && index < (G_SIZE * 2))
     i = 3;
   else
-    i = index % g_size;
+    i = index % G_SIZE;
   return (i);
 }
 
 int get_j(int index)
 {
   int j;
-  if (index < g_size * 2)
-    j = index % g_size;
-  else if (g_size * 2 <= index && index < g_size * 3)
+  if (index < G_SIZE * 2)
+    j = index % G_SIZE;
+  else if (G_SIZE * 2 <= index && index < G_SIZE * 3)
     j = 0;
   else
     j = 3;
