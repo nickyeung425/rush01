@@ -1,28 +1,5 @@
 #include <stdlib.h>
 
-int get_i(int index)
-{
-  int i;
-  if (index < g_size)
-    i = 0;
-  else if (g_size <= index && index < (g_size * 2))
-    i = 3;
-  else
-    i = index % g_size;
-  return i;
-}
-
-int get_j(int index)
-{
-  int j;
-  if (index < g_size * 2)
-    j = index % g_size;
-  else if (g_size * 2 <= index && index < g_size * 3)
-    j = 0;
-  else
-    j = 3;
-  return j;
-}
 
 int check_value_onboard(int *values, int values_size, int value)
 {
@@ -325,7 +302,7 @@ int find_solution_finished(int **board_solution)
   }
   return 1;
 }
-int find_solution(int ***board, int **board_solution, *constraint)
+int find_solution(int ***board, int **board_solution, int *constraint)
 {
   int *coordinates = find_next_coordinates(board_solution);
   int no_of_value_left = board_solution[coordinates[0]][coordinates[1]];
@@ -334,10 +311,23 @@ int find_solution(int ***board, int **board_solution, *constraint)
   int **new_board_solution = NULL;
   if (find_solution_finished(board_solution) == 1)
   {
-    int result = test_constraint(board, constraint);
+    int result = test_sudoku(board);
 
-    ft_print_int_array_result(board);
-    return 1;
+      // ft_print_char(result+'0');
+      // ft_print_str("result\n");
+      // ft_print_int_array_result(board);
+    if (result == 1)
+    {
+      result = test_constraint(board, constraint);
+      ft_print_str("result\n");
+      ft_print_int_array_result(board);
+      return 1;  
+    }
+    else
+    {
+      return 0;
+    }
+    
   }
   else
   {
@@ -362,8 +352,6 @@ int find_solution(int ***board, int **board_solution, *constraint)
 
 void find_solution_start(int *constraint, int ***board, int **board_solution)
 {
-  // int x = 0;
-  // int y = 0;
   int result = find_solution(board, board_solution, constraint);
   printf("%d", result);
 }

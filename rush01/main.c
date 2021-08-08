@@ -1,11 +1,13 @@
 #define g_size 4
 #include <unistd.h>
 #include <stdlib.h>
+#include "./get_constraint_position.c"
 #include "./utils.c"
 #include "./check_input.c"
 #include "./starting_board.c"
-#include "./solve.c"
 #include "./test.c"
+#include "./test_sudoku.c"
+#include "./solve.c"
 
 
 

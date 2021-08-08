@@ -9,7 +9,7 @@ int	check_input(char *input)
 	while (input[id])
 	{
 		cv = input[id];
-		if ((i % 2 == 1 && cv != ' ') || (id % 2 == 0 && (!('0' < cv && cv <= (g_size + '0')))))
+		if ((id % 2 == 1 && cv != ' ') || (id % 2 == 0 && (!('0' < cv && cv <= (g_size + '0')))))
 		{
 			result = 1;
 			break ;
